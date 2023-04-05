@@ -1,0 +1,36 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-27-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   07-26-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+    <lightning-card title="Meeting Room">
+        <lightning-layout>
+            <lightning-layout-item size="4" padding="around-small">
+                <ul>
+                    <template iterator:result={meetingRoomsInfo}>
+                        <li key={result.value} style="padding:10px">
+                            <c-meeting-room meeting-room-info={result.value} show-room-info >
+                                <!-- <lightning-tile label={result.value.roomName} href="/005" ontileclick={onTileSelectHandler} slot="roomInfo">
+                                    <p class="slds-truncate" title={result.value.roomCapacity}>Room Capacity: {result.value.roomCapacity}</p>
+                                </lightning-tile>
+                                <div>This mark up will go under unamed slot</div> -->
+                            </c-meeting-room>
+                        </li>
+                    </template>
+                </ul>
+            </lightning-layout-item>
+            <lightning-layout-item size="8" padding="around-small">
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <div class="custom-box slds-box slds-p-around_medium slds-text-align_center"> You have select: {selectedMeetingRoom} Room</div>
+                </lightning-layout-item>
+            </lightning-layout-item>
+        </lightning-layout>
+       
+    </lightning-card>
+</template>

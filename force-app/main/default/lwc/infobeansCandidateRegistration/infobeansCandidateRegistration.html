@@ -1,0 +1,134 @@
+<template>
+    <template if:false={checkApplicationStatus}>
+        <template if:false={mode}>
+            <div class="registration-container">
+                
+                <lightning-layout>
+                    
+                    <lightning-layout-item size="12">
+                        <div class="header-text slds-p-bottom_medium">
+                            <h2 class="header2">
+                                InfoBeans Walkin (February 26, 2022)
+                            </h2>
+                            <h5 style="font-style: italic;">                
+                                Please register for walk-in with your details for better experience on Saturday. Based on the details submitted, our HR representatives would contact you and schedule your interview.
+                            </h5>
+                        </div>
+
+                            <div class="form-container">    
+                            <lightning-record-edit-form object-api-name="Infobeans_UserRegistration__c"  onsuccess={handleSuccess} onsubmit={handleSubmit}>
+                                <div class="slds-section slds-is-open">
+                                    <h3 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Basic Details</span>
+                                    </h3>
+                                    <div aria-hidden="false" class="slds-section__content">
+                                        <template iterator:field={basicDetailsfields}>
+                                            <div key={field.value} class="slds-grid slds-wrap">
+                                                <div  class="slds-col slds-size_1-of-1">
+                                                    <lightning-input-field   field-name={field.value} variant="label-stacked"> </lightning-input-field>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                                <div class="slds-section slds-is-open">
+                                    <h3 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Profile Highlights</span>
+                                    </h3>
+                                    <div aria-hidden="false" class="slds-section__content">
+                                        <template iterator:field={profileHighlightfields}>
+                                            <div key={field.value} class="slds-grid slds-wrap">
+                                                <div  class="slds-col slds-size_1-of-1">
+                                                    <lightning-input-field   field-name={field.value} variant="label-stacked"> </lightning-input-field>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_1-of-1">
+                                            <lightning-input accept={acceptedFormats} 
+                                                            label="Attach Resume" 
+                                                            required=true
+                                                            onchange={handleAddFiles} 
+                                                            type="file">
+                                            </lightning-input>
+                                            <br/>
+                                            <template if:true={fileUploaded}>
+                                                <template for:each={fileNamesArr} for:item="fileName">
+                                                    <span key={fileName.Name} class="slds-text-body_medium slds-text-color_success slds-p-right_x-small">
+                                                        {fileName.Name}
+                                                    </span>
+                                                </template>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-section slds-is-open">
+                                    <h3 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Walk-in Preferences</span>
+                                    </h3>
+                                    <div aria-hidden="false" class="slds-section__content">
+                                        <template iterator:field={walkinFields}>
+                                            <div key={field.value} class="slds-grid slds-wrap">
+                                                <div  class="slds-col slds-size_1-of-1">
+                                                    <lightning-input-field   field-name={field.value} variant="label-stacked"> </lightning-input-field>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                                <div class="slds-section slds-is-open">
+                                    <h3 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Joining Preferences</span>
+                                    </h3>
+                                    <div aria-hidden="false" class="slds-section__content">
+                                        <template iterator:field={joiningField}>
+                                            <div key={field.value} class="slds-grid slds-wrap">
+                                                <div  class="slds-col slds-size_1-of-1">
+                                                    <lightning-input-field   field-name={field.value} variant="label-stacked"> </lightning-input-field>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                                <div class="slds-section slds-is-open">
+                                    <h3 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Data Agreement</span>
+                                    </h3>
+                                    <div aria-hidden="false" class="slds-section__content">
+                                        <div class="slds-grid slds-wrap">
+                                
+                                            <div class="slds-col slds-size_1-of-1 slds-p-top_medium text-center">
+                                                <iframe src={navigateTo} class="recaptcha-infobeans" name="captchaFrame" style="border:0px;margin-left:-3px;" onload={captchaLoaded} width="330" height="110" ></iframe>
+                                            </div>
+                                            <div class="slds-col slds-size_2-of-2" style="display: -webkit-inline-box;padding-right:18px;">
+                                                <lightning-input-field onchange={hadleTermCondition}   field-name="IAgree__c" variant="label-hidden"> </lightning-input-field>
+                                                <p>I authorize InfoBeans to process this information for scheduling interviews and contacting me later for any suitable job opportunites.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1 text-center">
+                                        <lightning-button type="submit" disabled={isTermConditionAccepted} variant="brand" name="save" label="Register"></lightning-button>
+                                    </div>
+                                </div>
+                                
+                            </lightning-record-edit-form>
+                            </div>
+                        
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </template>
+        <template if:true={mode}>
+            <c-infobeans-candidate-Detail record-id={recordId} 
+                is-record-id-present = {isRecordIdPresent}
+                basic-detailsfields={basicDetailsfields}
+                youtube={youtubeLink}
+                profile-highlightfields={profileHighlightfields}
+                walkin-fields={walkinFields}
+                joining-field={joiningField}></c-infobeans-candidate-Detail>
+        </template>
+    </template>
+</template>

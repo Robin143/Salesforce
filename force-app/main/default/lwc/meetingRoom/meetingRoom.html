@@ -1,0 +1,21 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-27-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   07-26-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+    <template if:true={showRoomInfo}>
+        <div class="slds-p-around_medium lgc-bg" onclick={tileClickHandler}>
+            <!-- <slot name="roomInfo"></slot>
+            <slot></slot> -->
+            <lightning-tile label={meetingRoomInfo.roomName} href="/005">
+                <p class="slds-truncate" title={meetingRoomInfo.roomCapacity}>Room Capacity: {meetingRoomInfo.roomCapacity}</p>
+            </lightning-tile>
+        </div>
+    </template>
+</template>

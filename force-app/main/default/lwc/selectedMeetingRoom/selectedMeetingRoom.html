@@ -1,0 +1,24 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-27-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   07-27-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+    <lightning-card title="Selected Meeting Room">
+        <lightning-layout>
+            <lightning-layout-item size="8" padding="around-small">
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <div class="custom-box slds-box slds-p-around_medium slds-text-align_center"> 
+                        You have selected: {selectedMeetingRoom.roomName} Room
+                        Room Capacity: {selectedMeetingRoom.roomCapacity}
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

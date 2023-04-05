@@ -1,0 +1,33 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-28-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   07-28-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+    <lightning-card title="Account Manager through Apex call with wire property">
+        <lightning-input type="number" label="Number of Accounts" onchange={numberOfAccountChangeHandler}></lightning-input>
+        <p>
+            <lightning-button label="Get Accounts" onclick={getAccountsHandler}></lightning-button>
+        </p>
+        <ul>
+            <template if:true={isReponseRecieved}>
+                <!--when you make imperative call to Apex side then result directyl gets returned into object so tht's why we don't use accounts.data in for loop-->
+                <template for:each={accounts} for:item="account">
+                    <li key={account.Id}>
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-tile label={account.Name} type="media">
+                                <lightning-icon slot="media" icon-name="standard:account"></lightning-icon>
+                                <p class="slds-truncate" title={account.Phone}>{account.Phone}</p>
+                            </lightning-tile>
+                        </div>
+                    </li>
+                </template>
+            </template>
+        </ul>
+    </lightning-card>    
+</template>

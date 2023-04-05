@@ -1,0 +1,23 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-25-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   07-25-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+    <lightning-input type="checkbox" label="Show Div" onchange={showDivHandler}></lightning-input>
+    <template if:true={displayDiv}>
+        <div>I am here</div>
+    </template>
+    <template for:each={cityList} for:item="city">
+        <p key={city}>{city}</p>
+    </template>
+    <h1>This is example for itereating value using iterator</h1>
+    <template iterator:it={cityList}>
+        <p key={it.value}>{it.value}</p>
+    </template>
+</template>

@@ -1,0 +1,43 @@
+<aura:component controller="LookUpServerSideCntrl">
+    <aura:attribute name = "objName" type="String" description = "Object name to display record"/>
+    <aura:attribute name = "fieldName" type="String" description = "Object field name"/>
+    <aura:attribute name = "keyword" type="String" description = "keyword to search"/>
+    <aura:attribute name = "labelName" type="String" description = "Label name to display name on record selection"/>
+    <aura:attribute name = "iconName" type="String" default="standard:account" description="Icon to display with respect to Object"/>
+    <aura:attribute name = "recordList" type="List" description = "Record list of respective object fetched from server side"/>
+    <aura:attribute name = "showRcrdList" type="Boolean" default = "true" description = "Check to display or hide list"/>
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="selectedRecord" type="Object" />
+   
+    <!-- <aura:registerEvent name="LookUpSearchEvent" type="c:LookUpEvent"/> 
+<aura:handler name="LookUpSearchEvent" event="c:LookUpEvent" action="{!c.doHandleSearchEvent}"/>-->
+    <aura:handler name="change" value="{!v.keyword}" action="{!c.doHandleSearchEvent}"/>
+    
+    <div class="slds-form-element__control">
+        <div class="slds-combobox_container">
+            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" aria-expanded="true" aria-haspopup="listbox" role="combobox">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-4">
+                        <div class="slds-p-around_small">
+                            
+                            <lightning:input 
+                                             aura:id="enter-search"
+                                             name="Enter-search"
+                                             value="{!v.keyword}"
+                                             label="Enter keyword to search.."
+                                             type="search"
+                                             /> 
+                        </div>
+                    </div>
+                </div>
+                <aura:if isTrue = "{!v.showRcrdList}">
+                    <div id="listbox-id-2" class="slds-p-left_x-small slds-col slds-size_1-of-4 slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox"> 
+                        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                            <c:ListComponent value="{#value}" selectedRecord="{#selectedRecord}" recordList = "{!v.recordList}" iconName="{!v.iconName}" />
+                        </ul>
+                    </div>
+                </aura:if>
+            </div>
+        </div>
+    </div>
+</aura:component>

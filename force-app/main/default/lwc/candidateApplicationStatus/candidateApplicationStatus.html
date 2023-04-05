@@ -1,0 +1,73 @@
+<template>
+    <template if:true={checkApplicationStatus}>
+        <div class="registration-container ">
+            <lightning-layout>
+                <lightning-layout-item size="12">
+                    <div class="form-container status-form">
+                        <div class="slds-section slds-is-open">
+                            <h3 class="slds-section__title slds-theme_shade">
+                                <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Interview Status</span>
+                            </h3>
+                            <template if:false={showDetails}>
+                                <div class="slds-grid slds-wrap slds-p-horizontal_xx-small">
+                                    <div class="slds-col slds-size_1-of-1 slds-p-vertical_small">
+                                        <lightning-input type="text" label="Last name" onchange={handleLastName} class="fname" ></lightning-input>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-1 slds-p-bottom_small">
+                                        <lightning-input type="text" label="Mobile number" onchange={handleMobileNumber} class="fname" ></lightning-input>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-1 text-center">
+                                        <iframe src={navigateTo} class="recaptcha-infobeans" name="captchaFrame" style="border:0px;margin-left:-3px;" onload={captchaLoaded} width="330" height="110" ></iframe>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                        <template if:false={showDetails}>
+                            <div class="slds-grid slds-wrap slds-p-horizontal_medium">
+                                <div class="slds-col slds-size_1-of-1 text-center">
+                                    <lightning-button type="submit" onclick={handleRecordDetail}  variant="brand" name="save" label="Submit"></lightning-button>
+                                </div>
+                            </div>
+                        </template>
+                        <template if:true={showDetails}>
+                            <lightning-record-view-form record-id={recordId} density="compact" object-api-name="Infobeans_UserRegistration__c">
+                                <div class="slds-section slds-is-open">
+                                    
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-p-bottom_small">
+                                                <lightning-output-field    field-name="Infobeans_FirstName__c" variant="label-stacked"> </lightning-output-field>
+                                            </div>
+                                       
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-p-bottom_small">
+                                                <lightning-output-field    field-name="Infobeans_LastName__c" variant="label-stacked"> </lightning-output-field>
+                                            </div>
+                                        
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-p-bottom_small">
+                                                <lightning-output-field    field-name="ReportingTime__c" variant="label-stacked"> </lightning-output-field>
+                                            </div>
+                                        
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-p-bottom_small">
+                                                <lightning-output-field    field-name="Walk_in_location__c" variant="label-stacked"> </lightning-output-field>
+                                            </div>
+                                        
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-p-bottom_small">
+                                                <lightning-output-field    field-name="Status__c" variant="label-stacked"> </lightning-output-field>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                                <div class="slds-grid slds-wrap slds-p-horizontal_medium">
+                                    <div class="slds-col slds-size_1-of-1 text-center">
+                                        <lightning-button type="submit" onclick={handleCloseStatusCheck}  variant="brand" name="save" label="Close"></lightning-button>
+                                    </div>
+                                </div>
+                            </lightning-record-view-form>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </template>
+</template>

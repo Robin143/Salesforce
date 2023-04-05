@@ -1,0 +1,123 @@
+<template>
+
+    <template if:false={showGroups}>
+        <div class="card chat-app">
+            <div id="plist" class="people-list">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <p>Approved Templates</p>
+                    </div>
+                </div>
+                <ul class="list-unstyled chat-list">
+                    <template iterator:templ={msgTemplates}>
+                        <a data-id={templ.value.id} key={templ.key} onclick={handleCurrentTemplate}>
+                            <li data-id={templ.value.Id}  key={templ.key} class="clearfix">
+                                <!-- onactiontriggered={handleCurrentTemplate} -->
+                                <lightning-tile key={templ.value}  label={templ.value.Label} type="media">
+                                    <lightning-icon slot="media" icon-name="standard:entitlement_template"></lightning-icon>
+                                    <p class="slds-truncate" title={templ.value.Header__c}>{templ.value.Header__c}</p>
+                                </lightning-tile>
+                            </li>
+                        </a>
+                    </template>
+                </ul>
+            </div>
+            <div class="chat">
+                <div class="chat-header clearfix">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <lightning-tile label={header} type="media">
+                                <lightning-icon slot="media" icon-name="standard:entitlement_template"></lightning-icon>
+                                <p class="slds-truncate" title={header}>{header}</p>
+                            </lightning-tile>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-history">
+                    <ul>
+                        <li class="clearfix">
+                             <div class="card1">
+                                <div class="card-bg">
+                                    <div class="card-block">
+                                        <h3 class="card-title">{header}</h3><br/>{body}<br/>
+                                        <p class="card-text">{footer}</p>
+                                    </div>
+                                </div>
+                            </div>      
+                            <!-- <c-infogram-message-template message-template={currentTemplate}>
+                            </c-infogram-message-template> -->
+                        </li>
+                    </ul>
+                </div>
+                <div class="chat-message clearfix">
+                    <div class="input-group">
+                         <lightning-button  variant="brand" label="Select groups to send message" 
+                            title="View Groups" onclick={handleGroups} 
+                            class="slds-m-left_x-small"></lightning-button>                                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+        <template if:true={showGroups}>
+                <div class="header">
+                    <div class="header-child">
+                        <span>
+                            <p> Your Groups</p>
+                        </span>
+                    </div>
+                </div>
+                <br/>
+                
+                <div style="width:25%; margin-left:auto">
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <span>
+                                <lightning-button label="Send" onclick={handleSendMessage} 
+                                      variant="brand"></lightning-button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate">
+                                    <lightning-input onchange={allSelected} type="checkbox"></lightning-input>
+                                </div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Name">Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="First Name">Group Name</div>
+                            </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={dataRec} for:item="con">
+                            <tr key={con.Id}>
+                                <th scope="col">
+                                    <div>
+                                        <lightning-input type="checkbox" 
+                                                onchange={handleSingelSelection} value={con.Name} 
+                                                data-id={con.Id}></lightning-input>
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div>{con.Name}</div>
+                                </th>
+                                <th scope="col">
+                                    <div>{con.DeveloperName}</div>
+                                </th>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+                <br/>
+                
+        </template>
+</template>

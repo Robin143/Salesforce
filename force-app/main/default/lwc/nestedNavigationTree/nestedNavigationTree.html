@@ -1,0 +1,362 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 08-09-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   08-02-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+    <!-- <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-tree items={items} header="Roles"></lightning-tree>
+        </div> 
+    
+        <lightning-card>
+            <lightning-layout>      
+                <ul class="slds-timeline">
+                    <template iterator:res={items}>
+                        <li key ={res.value}>
+                            <div class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
+                            
+                                <div class="slds-media">
+                                    <div style="padding-left: 19px;" class="slds-media__figure">
+                                       
+                                        <span class="slds-avatar slds-avatar_group-image-large">
+                                            <span class="slds-assistive-text">Roadmap</span>
+                                        </span>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                                            <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                                <h3 title="Roadmap tree">
+                                                    <a href="#">
+                                                    <p style="font-weight:bolder">{res.value.name}</p>
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                       
+                        <div key={res.value}  class="slds-timeline" style="padding-left:2cm">
+                            <template iterator:c={res.value.items}>
+                                <li key={c.value}>
+                                    <div class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
+                                        <div class="slds-media">
+                                            <div  style="padding-left: 19px;" class="slds-media__figure">
+                                                <span class="slds-avatar slds-avatar_group-image-large">
+                                                    <span class="slds-assistive-text">Roadmap</span>
+                                                </span>
+                                            </div>
+                                            <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                                <h3 title="Roadmap tree">
+                                                    <a href="#">
+                                                    <p style="font-weight:bolder">{c.value.name}</p>
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <div key={c.value}  class="slds-timeline" style="padding-left:2cm">
+                                    <template iterator:gc={c.value.items}>
+                                        <li key={gc.value}>
+                                            <div class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
+                                                <div class="slds-media">
+                                                    <div  style="padding-left: 19px;" class="slds-media__figure">
+                                                        <span class="slds-avatar slds-avatar_group-image-large">
+                                                            <span class="slds-assistive-text">Roadmap</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                                        <h3 title="Roadmap tree">
+                                                            <a href="#">
+                                                            <p style="font-weight:bolder">{gc.value.name}</p>
+                                                            </a>
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <div key={gc.value}  class="slds-timeline" style="padding-left:2cm">
+                                            <template iterator:ggc={gc.value.items}>
+                                                <li key={ggc.value}>
+                                                    <div class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
+                                                        <div class="slds-media">
+                                                            <div  style="padding-left: 19px;" class="slds-media__figure">
+                                                                <span class="slds-avatar slds-avatar_group-image-large">
+                                                                    <span class="slds-assistive-text">Roadmap</span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                                                <h3 title="Roadmap tree">
+                                                                    <a href="#">
+                                                                    <p style="font-weight:bolder">{ggc.value.name}</p>
+                                                                    </a>
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <div key={ggc.value}  class="slds-timeline" style="padding-left:2cm">
+                                                    <template iterator:gggc={ggc.value.items}>
+                                                        <li key={gggc.value}>
+                                                            <div class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
+                                                                <div class="slds-media">
+                                                                    <div  style="padding-left: 19px;" class="slds-media__figure">
+                                                                        <span class="slds-avatar slds-avatar_group-image-large">
+                                                                            <span class="slds-assistive-text">Roadmap</span>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                                                        <h3 title="Roadmap tree">
+                                                                            <a href="#">
+                                                                            <p style="font-weight:bolder">{gggc.value.name}</p>
+                                                                            </a>
+                                                                        </h3>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </template>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </ul>
+               
+            </lightning-layout>
+        </lightning-card>
+    </div> -->
+    <!-- <lightning-card>
+        <lightning-layout>
+            <template iterator:parent={items}>
+                <div key={parent.value} class="wrapper">
+                    <div class="container">
+                        <ol class="organizational-chart">
+                                <li >
+                                    <div class="site-name">
+                                        <div class="site"></div>
+                                        <div class="text-holder">{parent.value.name}</span></div>
+                                    </div>
+                                    <ol>
+                                        <template iterator:child={parent.value.items}>
+                                            <li key={child.value}>
+                                                <div class="outborder">
+                                                    <div class="subdomain"></div>
+                                                    <div class="chart-text">{child.value.name}</div>
+                                                </div>
+                                                <ol>
+                                                    <template iterator:grandchild={child.value.items}>
+                                                        <li key={grandchild.value}>
+                                                            <div class="outborder">
+                                                                <div class="subdomain"></div>
+                                                                <div class="chart-text">{grandchild.value.name}</div>
+                                                            </div>
+                                                        </li>
+                                                    </template>
+                                                </ol>
+                                            </li>
+                                        </template>
+                                    </ol>
+                                </li>
+                        </ol>
+                    </div>
+                </div>
+            </template>
+             <div class="content">
+                <h1>Roadmap</h1>
+                <figure class="org-chart cf">
+                  <ul class="administration">
+                    <li>					
+                      <ul class="director">
+                        <template iterator:par={items}>
+                            <li key={par.label}>
+                                <a href="#"><p>{par.value.name}</p></a>
+                                <ul class="subdirector">
+                                    <li><a href="#"><span>Assistante Director</span></a></li>
+                                </ul>
+                                <ul class="departments cf">								
+                                    <li><a href="#"><span>Administration</span></a></li>
+                                    
+                                    <li class="department dep-a">
+                                    <a href="#"><span>Department A</span></a>
+                                    <ul class="sections">
+                                        <li class="section"><a href="#"><span>Section A1</span></a></li>
+                                        <li class="section"><a href="#"><span>Section A2</span></a></li>
+                                        <li class="section"><a href="#"><span>Section A3</span></a></li>
+                                        <li class="section"><a href="#"><span>Section A4</span></a></li>
+                                        <li class="section"><a href="#"><span>Section A5</span></a></li>
+                                    </ul>
+                                    </li>
+                                    <li class="department dep-b">
+                                    <a href="#"><span>Department B</span></a>
+                                    <ul class="sections">
+                                        <li class="section"><a href="#"><span>Section B1</span></a></li>
+                                        <li class="section"><a href="#"><span>Section B2</span></a></li>
+                                        <li class="section"><a href="#"><span>Section B3</span></a></li>
+                                        <li class="section"><a href="#"><span>Section B4</span></a></li>
+                                    </ul>
+                                    </li>
+                                    <li class="department dep-c">
+                                    <a href="#"><span>Department C</span></a>
+                                    <ul class="sections">
+                                        <li class="section"><a href="#"><span>Section C1</span></a></li>
+                                        <li class="section"><a href="#"><span>Section C2</span></a></li>
+                                        <li class="section"><a href="#"><span>Section C3</span></a></li>
+                                        <li class="section"><a href="#"><span>Section C4</span></a></li>
+                                    </ul>
+                                    </li>
+                                    <li class="department dep-d">
+                                    <a href="#"><span>Department D</span></a>
+                                    <ul class="sections">
+                                        <li class="section"><a href="#"><span>Section D1</span></a></li>
+                                        <li class="section"><a href="#"><span>Section D2</span></a></li>
+                                        <li class="section"><a href="#"><span>Section D3</span></a></li>
+                                        <li class="section"><a href="#"><span>Section D4</span></a></li>
+                                        <li class="section"><a href="#"><span>Section D5</span></a></li>
+                                        <li class="section"><a href="#"><span>Section D6</span></a></li>
+                                    </ul>
+                                    </li>
+                                    <li class="department dep-e">
+                                    <a href="#"><span>Department E</span></a>
+                                    <ul class="sections">
+                                        <li class="section"><a href="#"><span>Section E1</span></a></li>
+                                        <li class="section"><a href="#"><span>Section E2</span></a></li>
+                                        <li class="section"><a href="#"><span>Section E3</span></a></li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </template>
+                      </ul>	
+                    </li>
+                  </ul>			
+                </figure>
+              </div> 
+        </lightning-layout>
+    </lightning-card> -->
+    <lightning-card size="12">
+        <lightning-layout>
+            <div class="wrapper">
+                <div class="container">
+                    <template iterator:res={items}>
+                        <ol key={res.value.Id} class="static-org-chart">
+                            <li>
+                                <div class="staff_card" id={res.value.id}>
+                                    <div class="staff_title">
+                                        {res.value.label}
+                                    </div>
+                                    <div class="staff_info">
+                                        <div class="staff_image">
+                                            <img src="https://miro.medium.com/fit/c/256/256/1*7oNrN58deYJ7G2k8P5iljQ.jpeg" class="card-img-top" />
+                                        </div>
+                                        <div class="staff_name_container">
+                                            <div class="staff_name_label">
+                                                Position
+                                            </div>
+                                            <div class="staff_name">
+                                                {res.value.name}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <ol class="first">
+                                    <li>
+                                        <div>
+                                            <div>Emergency department</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>Nursing department</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>Lab technologies department</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>Interpreting department</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>Allied health</div>
+                                        </div>
+                                    </li>
+                                    
+                                </ol>-->
+                                
+                                <ol  class="second static-org-chart">
+                                    <template iterator:child={res.value.items}>
+                                        <li key={child.value.Id}>
+                                            <div class="staff_card testSiblings" data-id={child.value.Id}>
+                                                <div class="staff_title">
+                                                    {child.value.label}
+                                                </div>
+                                                <div class="staff_info">
+                                                    <div class="staff_image">
+                                                        <img src="https://miro.medium.com/fit/c/256/256/1*7oNrN58deYJ7G2k8P5iljQ.jpeg" class="card-img-top" />
+                                                    </div>
+                                                    <div class="staff_name_container">
+                                                        <div class="staff_name_label">
+                                                            Position
+                                                        </div>
+                                                        <div class="staff_name">
+                                                            {child.value.name}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ol  class="second">
+                                                <template iterator:grandchild={child.value.items}>
+                                                    <li key={grandchild.value.Id}>
+                                                        <div class="staff_card" id={grandchild.value.id}>
+                                                            <div class="staff_title">
+                                                                {grandchild.value.label}
+                                                            </div>
+                                                            <div class="staff_info">
+                                                                <div class="staff_image">
+                                                                    <img src="https://miro.medium.com/fit/c/256/256/1*7oNrN58deYJ7G2k8P5iljQ.jpeg" class="card-img-top" />
+                                                                </div>
+                                                                <div class="staff_name_container">
+                                                                    <div class="staff_name_label">
+                                                                        Position
+                                                                    </div>
+                                                                    <div class="staff_name">
+                                                                        {grandchild.value.name}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </template>
+                                            </ol>
+                                        </li>
+                                    </template>
+                                    <svg class="svg">
+                                        <line class="line" data-id="line"/>
+                                    </svg>
+                                </ol>
+                            </li>
+                        </ol>
+                </template>
+                </div>
+            </div>
+            
+        </lightning-layout>
+    </lightning-card>
+   
+</template>

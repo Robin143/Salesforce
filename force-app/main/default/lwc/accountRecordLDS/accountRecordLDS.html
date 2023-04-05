@@ -1,0 +1,32 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-27-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   07-27-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+    <lightning-card title="Account Manager">
+        <lightning-layout>
+            <lightning-layout-item size="6" padding="around-small">
+                <lightning-card title="Create a new Account">
+                    <lightning-input name="Account name" label="Name" onchange={accountNamehandler}></lightning-input>
+                    <lightning-input name="Account URL" type="url" label="Website" onchange={accountWebsitehandler}></lightning-input>
+                    <lightning-input name="Account Phone" type="phone" label="Phone" onchange={accountPhonehandler}></lightning-input>
+                    
+                    <lightning-button label="Save" onclick={createAccount} variant="band"></lightning-button>
+                </lightning-card>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" padding="around-small">
+                <lightning-card title="View Account Record">
+                    <p><lightning-formatted-text value={retAccountName}></lightning-formatted-text></p>
+                    <p><lightning-formatted-phone value={retAccountPhone}></lightning-formatted-phone></p>
+                    <p><lightning-formatted-url value={retAccountWebsite}></lightning-formatted-url></p>
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

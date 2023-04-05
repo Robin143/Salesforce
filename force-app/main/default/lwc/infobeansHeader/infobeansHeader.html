@@ -1,0 +1,20 @@
+<template>
+    <header class="mainheader">
+        <div class="slds-box mxwidth">
+           <div class="slds-grid slds-gutters slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 header_left_section">                 
+                    <div class="logo" onclick={refreshComponent}>
+                       <a> 
+                            <h2><img src={mainLogo}></h2>
+                       </a>
+                    </div>
+                </div>
+                <template if:true={showButton}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 header_right_section">
+                        <lightning-button type="submit" onclick={handleApplicationStatus} variant="brand" name="save" label="Know your interview status"></lightning-button>
+                    </div>
+                </template>
+            </div>
+        </div>
+     </header>
+</template>

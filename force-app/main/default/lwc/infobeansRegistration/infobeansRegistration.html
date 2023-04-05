@@ -1,0 +1,57 @@
+<template>
+     <div class="registration-container">
+        <lightning-layout>
+            <lightning-layout-item size="12" padding="around-large">
+                <lightning-card title="">
+                    <lightning-record-edit-form object-api-name="Infobeans_UserRegistration__c"  onsuccess={successHandler} onsubmit={handleSubmit}>
+                        
+                            <template iterator:field={fields}>
+                                <div key={field.value} class="slds-grid slds-wrap">
+                                    <div  class="slds-col slds-size_1-of-1 slds-p-horizontal_medium">
+                                        <lightning-input-field   field-name={field.value} variant="label-stacked"> </lightning-input-field>
+                                    </div>
+                                </div>
+                            </template>
+                        <div class="slds-grid slds-wrap slds-p-horizontal_medium">
+                            <div class="slds-col slds-size_1-of-1">
+                                <!-- <c-file-upload record-id={recordId}></c-file-upload> -->
+                                <!-- <lightning-file-upload
+                                        label="Attach resume"
+                                        name="fileUploader"
+                                        accept={acceptedFormats}
+                                        record-id={recordId}
+                                        onuploadfinished={handleUploadFinished}
+                                        >
+                                </lightning-file-upload> -->
+                                <!-- <lightning-input accept={acceptedFormats} 
+                                                label="Attach Resume" 
+                                                required=true
+                                                onchange={handleAddFiles} 
+                                                type="file">
+                                </lightning-input>
+                                <br/>
+                                <template if:true={fileUploaded}>
+                                  <lightning-button-icon class="slds-p-right_x-small" icon-name="action:close" onclick={removeFiles} alternative-text="Remove document" size="x-small"></lightning-button-icon> 
+                                    <template for:each={fileNamesArr} for:item="fileName">
+                                        <span key={fileName.Name} class="slds-text-body_medium slds-text-color_success slds-p-right_x-small">
+                                            {fileName.Name}
+                                        </span>
+                                    </template>
+                                </template> -->
+                            </div>
+                            <!-- <div class="slds-col slds-size_1-of-1 slds-p-top_medium text-center">
+                                <iframe src={navigateTo} name="captchaFrame" style="border:0px;margin-left:-3px;" onload={captchaLoaded} width="330" height="110" ></iframe>
+                            </div>
+                            -->
+                            <div class="slds-col slds-size_1-of-1 text-center">
+                                <lightning-button type="submit" variant="brand" name="save" label="Register"></lightning-button>
+                            </div>
+                        </div>
+                        
+                    </lightning-record-edit-form>
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+     </div>
+     <!-- <c-infobeans-candidate-Detail></c-infobeans-candidate-Detail> -->
+</template>

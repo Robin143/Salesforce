@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+	<apiVersion>51.0</apiVersion>
+	<isExposed>true</isExposed>
+	<targets>
+		<target>lightning__RecordPage</target>
+		<target>lightning__AppPage</target>
+		<target>lightning__HomePage</target>
+		<target>lightningCommunity__Page</target>
+		<target>lightningCommunity__Default</target>
+	</targets>
+	<targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property type="String" name="basicDetailsfields" label="Basic details" default="Infobeans_FirstName__c,Infobeans_LastName__c,Infobeans_Email__c,Infobeans_Mobile__c,Location__c"/>
+			<property type="String" name="profileHighlightfields" label="Profile Highlights" default="TotalExperience__c,Skillset__c,NoticePeriod__c,OfferInHand__c,CurrentCTC__c,InhandOfferCTC__c"/>
+			<property type="String" name="walkinFields" label="Walk-in Preferences" default="Walk_in_location__c,ReportingTime__c"/>
+			<property type="String" name="joiningField" label="Joining Preferences" default="JoiningReadiness__c,BaseLocation__c,ExpectedCTC__c"/>          
+			<property type="String" name="youtubeLink" label="Youtube link" default="https://www.youtube.com/embed/NKCnCKxjWKc"/>          
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
